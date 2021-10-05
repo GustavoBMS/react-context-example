@@ -35,11 +35,11 @@ function DadosEntrega({ aoEnviar }) {
 
   return (
     <form onSubmit={HandleSubmit}>
-      <TextField value={cep} onChange={handleCep} id="cep" label="CEP" type="number" variant="outlined" margin="normal" />
-      <TextField value={endereco} onChange={handleEndereco} id="endereco" label="Endereço" type="text" variant="outlined" margin="normal" fullWidth />
-      <TextField value={numero} onChange={handleNumero} id="numero" label="Número" type="number" variant="outlined" margin="normal" />
-      <TextField value={estado} onChange={handleEstado} id="estado" label="Estado" type="number" variant="outlined" margin="normal" />
-      <TextField value={cidade} onChange={handleCidade} id="cidade" label="Cidade" type="number" variant="outlined" margin="normal" />
+      <TextField value={cep} onChange={handleCep} id="cep" label="CEP" type="number" variant="outlined" margin="normal" required />
+      <TextField value={endereco} onChange={handleEndereco} id="endereco" label="Endereço" type="text" variant="outlined" margin="normal" fullWidth required />
+      <TextField value={numero} onChange={handleNumero} id="numero" label="Número" type="number" variant="outlined" margin="normal" required />
+      <TextField value={estado} onChange={handleEstado} id="estado" label="Estado" type="number" variant="outlined" margin="normal" required />
+      <TextField value={cidade} onChange={handleCidade} id="cidade" label="Cidade" type="number" variant="outlined" margin="normal" required />
 
       <Button type="submit" variant="contained" color="primary" fullWidth >Finalizar Cadastro</Button>
     </form>
