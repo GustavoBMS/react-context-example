@@ -22,6 +22,9 @@ function DadosEntrega({ aoEnviar }) {
   }
 
   function handleCep(e){
+    /*const cepWithoutFormat = e.target.value;
+    const formattedCep = cepWithoutFormat.replace(/-/g,"");
+    console.log(formattedCep);*/
     setCep(e.target.value);
   }
 
@@ -56,6 +59,11 @@ function DadosEntrega({ aoEnviar }) {
       setEstado(requestCepData.uf);
       setLoading(false);
     } catch (err) {
+      setEndereco("");
+      setBairro("");
+      setCidade("");
+      setEstado("");
+      setLoading(false);
       console.log(err);
     }
   }
