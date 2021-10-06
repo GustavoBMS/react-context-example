@@ -22,10 +22,10 @@ function DadosEntrega({ aoEnviar }) {
   }
 
   function handleCep(e){
-    /*const cepWithoutFormat = e.target.value;
-    const formattedCep = cepWithoutFormat.replace(/-/g,"");
-    console.log(formattedCep);*/
-    setCep(e.target.value);
+    let cepWithoutFormat = e.target.value;
+    let formattedCep = cepWithoutFormat.replaceAll("-","");
+    console.log(formattedCep);
+    setCep(formattedCep);
   }
 
   function handleEndereco(e){
@@ -59,6 +59,7 @@ function DadosEntrega({ aoEnviar }) {
       setEstado(requestCepData.uf);
       setLoading(false);
     } catch (err) {
+      alert("CEP não encontrado");
       setEndereco("");
       setBairro("");
       setCidade("");
@@ -75,7 +76,7 @@ function DadosEntrega({ aoEnviar }) {
         <ClipLoader size={150} color={"black"} loading={loading} />
         :
         <form onSubmit={HandleSubmit}>
-          <TextField value={cep} onChange={handleCep} onBlur={handleCepByApi} id="cep" label="CEP" type="number" variant="outlined" margin="normal" required />
+          <TextField value={cep} onChange={handleCep} onBlur={handleCepByApi} id="cep" label="CEP" type="text" variant="outlined" margin="normal" required />
           <TextField value={endereco} onChange={handleEndereco} id="endereco" label="Endereço" type="text" variant="outlined" margin="normal" fullWidth required />
           <TextField value={bairro} onChange={handleBairro} id="bairro" label="Bairro" type="text" variant="outlined" margin="normal" fullWidth required />
           <TextField value={numero} onChange={handleNumero} id="numero" label="Número" type="number" variant="outlined" margin="normal" required />
